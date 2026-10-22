@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Chinese Municipalities</string>
+    <string name="title_main">Municipalities in China</string>
+    <string name="label_input">I want to know about:</string>
+    <string name="hint_municipality">name of a municipality</string>
+    <string name="error_empty">Please enter a municipality name.</string>
+    <string name="error_invalid">Unsupported municipality. Enter Beijing, Shanghai, Tianjin, or Chongqing.</string>
+    <string name="visit_site">Visit site</string>
+    <string name="no_browser">No application available to open the website.</string>
+    <string name="image_main">Map of the municipalities in China</string>
+    <string name="image_municipality">Image of the selected municipality</string>
+
+    <string name="url_beijing">https://english.beijing.gov.cn/</string>
+    <string name="url_shanghai">https://english.shanghai.gov.cn/</string>
+    <string name="url_tianjin">https://en.tj.gov.cn/</string>
+    <string name="url_chongqing">https://english.cq.gov.cn/</string>
+</resources>
