@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PracticalFive" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/municipality_beijing</item>
+        <item name="android:statusBarColor">@color/color_text_dark</item>
+        <item name="android:windowBackground">@color/color_default_background</item>
+    </style>
+</resources>
