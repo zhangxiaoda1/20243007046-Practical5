@@ -1,6 +1,9 @@
 package com.example.practicalfive;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 public class Municipality extends AppCompatActivity {
+
+    private String websiteUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,28 +40,33 @@ public class Municipality extends AppCompatActivity {
         int imageRes;
         int colorRes;
         int summaryIndex;
+        int urlRes;
 
         switch (name) {
             case "Beijing":
                 imageRes = R.drawable.beijing;
                 colorRes = R.color.municipality_beijing;
                 summaryIndex = 0;
+                urlRes = R.string.url_beijing;
                 break;
             case "Shanghai":
                 imageRes = R.drawable.shanghai;
                 colorRes = R.color.municipality_shanghai;
                 summaryIndex = 1;
+                urlRes = R.string.url_shanghai;
                 break;
             case "Chongqing":
                 imageRes = R.drawable.chongqing;
                 colorRes = R.color.municipality_chongqing;
                 summaryIndex = 2;
+                urlRes = R.string.url_chongqing;
                 break;
             case "Tianjin":
             default:
                 imageRes = R.drawable.tianjin;
                 colorRes = R.color.municipality_tianjin;
                 summaryIndex = 3;
+                urlRes = R.string.url_tianjin;
                 break;
         }
 
@@ -79,5 +89,18 @@ public class Municipality extends AppCompatActivity {
         // Visit site button: municipality-coloured background with light text.
         btnVisit.setBackgroundTintList(ColorStateList.valueOf(themeColor));
         btnVisit.setTextColor(lightText);
+        websiteUrl = getString(urlRes);
+
+        // Implicit Intent: ask Android to open the official website in a
+        // suitable application (normally a browser). The URL depends on
+        // the municipality currently displayed.
+        btnVisit.setOnClickListener(v -> {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(websiteUrl));
+            try {
+                startActivity(webIntent);
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(this, R.string.no_browser, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
